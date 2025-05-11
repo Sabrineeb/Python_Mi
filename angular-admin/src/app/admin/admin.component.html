@@ -1,0 +1,38 @@
+<div class="dashboard">
+  <h2>Tableau de bord Admin</h2>
+
+  <div class="stats">
+    <p>👩‍🎓 Étudiants inscrits : {{ totalStudents }}</p>
+    <p>📚 Formations disponibles : {{ totalFormations }}</p>
+  </div>
+
+  <h2>Étudiants ({{ totalStudents }})</h2>
+<ul>
+  <li *ngFor="let student of students">
+    {{ student.name }} - {{ student.email }}
+  </li>
+</ul>
+
+<h3>Ajouter un étudiant</h3>
+<form (submit)="addStudent(); $event.preventDefault()">
+  <input type="text" placeholder="Nom" [(ngModel)]="newStudent.nom" name="name" required>
+  <input type="text" placeholder="prenom" [(ngModel)]="newStudent.prenom" name="email" required>
+  <input type="email" placeholder="Email" [(ngModel)]="newStudent.email" name="email" required>
+  <button type="submit">Ajouter</button>
+</form>
+
+<hr>
+
+<h2>Formations ({{ totalFormations }})</h2>
+<ul>
+  <li *ngFor="let formation of formations">
+    {{ formation.title }} - {{ formation.description }}
+  </li>
+</ul>
+
+<h3>Ajouter une formation</h3>
+<form (submit)="addFormation(); $event.preventDefault()">
+  <input type="text" placeholder="Titre" [(ngModel)]="newFormation.title" name="title" required>
+  <input type="text" placeholder="Description" [(ngModel)]="newFormation.description" name="description" required>
+  <button type="submit">Ajouter</button>
+</form>
