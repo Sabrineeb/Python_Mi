@@ -1,0 +1,75 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #2d3748;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #4f46e5;
+}
+
+.formationList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+.formationItem {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  list-style: none;
+}
+
+.formationItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.formationTitle {
+  font-size: 1.5rem;
+  color: #1a202c;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.formationDescription {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.btnInscrire {
+  display: inline-block;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btnInscrire:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+}

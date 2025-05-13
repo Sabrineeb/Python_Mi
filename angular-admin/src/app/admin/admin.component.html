@@ -7,32 +7,40 @@
   </div>
 
   <h2>Étudiants ({{ totalStudents }})</h2>
-<ul>
-  <li *ngFor="let student of students">
-    {{ student.name }} - {{ student.email }}
-  </li>
-</ul>
+  <ul>
+    <li *ngFor="let student of students">
+      {{ student.nom }} {{ student.prenom }} - {{ student.email }} ({{ getDepartementNom(student.departement_id) }})
+    </li>
+  </ul>
 
-<h3>Ajouter un étudiant</h3>
-<form (submit)="addStudent(); $event.preventDefault()">
-  <input type="text" placeholder="Nom" [(ngModel)]="newStudent.nom" name="name" required>
-  <input type="text" placeholder="prenom" [(ngModel)]="newStudent.prenom" name="email" required>
-  <input type="email" placeholder="Email" [(ngModel)]="newStudent.email" name="email" required>
-  <button type="submit">Ajouter</button>
-</form>
+  <h3>Ajouter un étudiant</h3>
+  <form (submit)="addStudent(); $event.preventDefault()">
+    <input type="text" placeholder="Nom" [(ngModel)]="newStudent.nom" name="nom" required>
+    <input type="text" placeholder="Prénom" [(ngModel)]="newStudent.prenom" name="prenom" required>
+    <input type="email" placeholder="Email" [(ngModel)]="newStudent.email" name="email" required>
+    <input type="password" placeholder="Mot de passe" [(ngModel)]="newStudent.password" name="password" required>
+    <select [(ngModel)]="newStudent.departement_id" name="departement_id">
+      <option *ngFor="let dep of departements" [value]="dep.id">{{ dep.name }}</option>
+    </select>
+    <button type="submit">Ajouter</button>
+  </form>
 
-<hr>
+  <hr>
 
-<h2>Formations ({{ totalFormations }})</h2>
-<ul>
-  <li *ngFor="let formation of formations">
-    {{ formation.title }} - {{ formation.description }}
-  </li>
-</ul>
+  <h2>Formations ({{ totalFormations }})</h2>
+  <ul>
+    <li *ngFor="let formation of formations">
+      {{ formation.title }} - {{ formation.description }} ({{ getDepartementNom(formation.departement_id) }})
+    </li>
+  </ul>
 
-<h3>Ajouter une formation</h3>
-<form (submit)="addFormation(); $event.preventDefault()">
-  <input type="text" placeholder="Titre" [(ngModel)]="newFormation.title" name="title" required>
-  <input type="text" placeholder="Description" [(ngModel)]="newFormation.description" name="description" required>
-  <button type="submit">Ajouter</button>
-</form>
+  <h3>Ajouter une formation</h3>
+  <form (submit)="addFormation(); $event.preventDefault()">
+    <input type="text" placeholder="Titre" [(ngModel)]="newFormation.title" name="title" required>
+    <input type="text" placeholder="Description" [(ngModel)]="newFormation.description" name="description" required>
+    <select [(ngModel)]="newFormation.departement_id" name="formation_departement_id">
+      <option *ngFor="let dep of departements" [value]="dep.id">{{ dep.name }}</option>
+    </select>
+    <button type="submit">Ajouter</button>
+  </form>
+</div>

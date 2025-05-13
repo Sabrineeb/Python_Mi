@@ -1,0 +1,75 @@
+.container {
+  max-width: 500px;
+  margin: 6rem auto;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.loginTitle {
+  text-align: center;
+  font-size: 2rem;
+  color: #1a202c;
+  margin-bottom: 2rem;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.loginForm input {
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.loginForm input:focus {
+  outline: none;
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+}
+
+.loginButton {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.loginButton:hover {
+  transform: translateY(-2px);
+}
+
+.errorMessage {
+  color: #dc2626;
+  text-align: center;
+  padding: 1rem;
+  background: #fef2f2;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.signupLink {
+  text-align: center;
+  margin-top: 2rem;
+  color: #4b5563;
+}
+
+.signupLink a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signupLink a:hover {
+  text-decoration: underline;
+}

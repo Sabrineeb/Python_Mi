@@ -11,6 +11,7 @@ class DepartementModel(Base):
 
     formations = relationship("FormationModel", back_populates="departement", cascade="all, delete-orphan")
 
+
 # Modèle pour les formations
 class FormationModel(Base):
     __tablename__ = 'formations'
@@ -47,3 +48,16 @@ class StudentFormation(Base):
 
     student = relationship("StudentModel", back_populates="inscriptions")
     formation = relationship("FormationModel", back_populates="students")
+# models.py
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class RecommendedBook(Base):
+    __tablename__ = 'recommended_books'
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True)
+    author = Column(String)
+    description = Column(String)

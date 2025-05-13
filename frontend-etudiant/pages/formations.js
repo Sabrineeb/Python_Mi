@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import styles from './styles/formations.module.css';
 import Link from 'next/link';
 
 export default function Formations() {
@@ -7,25 +8,34 @@ export default function Formations() {
 
   useEffect(() => {
     const fetchFormations = async () => {
-      const res = await fetch('http://localhost:9000/formations');
-      const data = await res.json();
-      setFormations(data);
-      setLoading(false);
+      try {
+        const res = await fetch('http://localhost:9001/formations');
+        const data = await res.json();
+        setFormations(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Erreur lors du chargement des formations :", error);
+        setLoading(false);
+      }
     };
+
     fetchFormations();
   }, []);
 
   if (loading) return <p>Chargement des formations...</p>;
 
   return (
-    <div>
-      <h1>Liste des Formations</h1>
-      <ul>
-        {formations.map((f) => (
-          <li key={f.id}>
-            <strong>{f.title}</strong> — {f.description}<br />
-          <Link href={`/inscrire/inscription-formation/${f.id}`}>S'inscrire</Link>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Liste des Formations</h1>
 
+      <ul className={styles.formationList}>
+        {formations.map(f => (
+          <li key={f.id} className={styles.formationItem}>
+            <div className={styles.formationTitle}>{f.title}</div>
+            <div className={styles.formationDescription}>{f.description}</div>
+            <Link href={`/inscrire/inscription-formation/${f.id}`} className={styles.btnInscrire}>
+              S'inscrire
+            </Link>
           </li>
         ))}
       </ul>
